@@ -1,0 +1,35 @@
+<html>
+    <head>
+        <title>helloword!</title>
+        <script type="text/javascript">
+        
+        /**
+         * 循环语句：
+         *  - while循环：
+         *      while(条件表达式){
+         *          语句...
+         *      } 
+         *  - do{
+         *      语句
+         *      }while() 
+         *  
+         */
+        var n = 1;
+        while(n < 10){
+            document.write(n + "<br />");
+            n++;
+        }
+
+        // 银行年利率为5%,1000通过多长时间的增长可以成为5000。
+        var money = 1000;
+        var year = 0;
+        while(money < 5000){
+            money *= 1.05;
+            year++;
+        }
+        document.write("1000 通过" + year + "年变成" + money);
+        </script>
+    </head>
+    <body>
+    </body>
+</html>

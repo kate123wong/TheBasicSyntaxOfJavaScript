@@ -1,0 +1,76 @@
+<html>
+    <head>
+        <title>helloword!</title>
+        <script type="text/javascript">
+
+            /**
+             * 在JS中，一共有六种数据类型
+             *      String 字符串
+             *      Number 数值
+             *      Boolean 布尔值
+             *      Null    空值
+             *      Undefined 未定义
+             *      Object 对象
+             * 前五种属于基本数据类型，Object属于引用数据类型
+             */ 
+
+            /**
+             * Number:
+             *  - 在JS中所有的数值都是Number类型
+             *      包括整数和浮点数(小数)
+             *  - JS中可以表示的最大值：
+             *      Number.MAX_VALU  1.7976931348623157e+308
+             *    如果使用Number表示的数值大于Number.MAX_VALU，则会返回一个Infinity，其是一个字面量
+             *      Infinity 表示正无穷
+             *      -Infinity 表示负无穷
+             *      使用typeof检查Infinity也会返回Number 
+             *  - NaN也是一个数值
+             *  - 正数里的最小值：Number.MIN_VALU  5e-324
+             */
+            // NUmber 123
+            var a = 123;
+            // String 123
+            var b = "123";
+            document.write(a);
+            document.write(b); 
+            
+            /**
+             * 可以使用运算符 typeof 来检查变量的类型 
+             *  语法：typeof 变量
+             *  检查数值时，返回Number
+             *  检查字符串时，返回String
+             */
+            document.write("\n\n")
+            document.write(typeof a);
+            document.write(typeof b);
+
+            // JS表示的最大值
+            console.log(Number.MAX_VALUE); // 1.7976931348623157e+308
+            var inf = Infinity;
+            console.log(typeof inf);
+            
+            // NaN也是一个自变量
+            var nan = NaN;
+            console.log(typeof NaN);
+            console.log(typeof nan);
+            console.log(typeof Number('45'));
+
+            // JS表示的最小值:是正数里面能表示的最小值
+            console.log(Number.MIN_VALUE);
+
+            // JS里面的整数运算可以保证精度正确
+            var c = 143 + 4545;
+            console.log(c);
+
+            /* JS里面的浮点运算，可能得到一个不精确的结果
+             * 千万不要用JS进行钱的运算
+            */
+            d = 0.1 + 0.0; 
+            console.log(d);
+
+        </script>
+    </head>
+    <body>
+        <p>helloword!</p>
+    </body>
+</html>

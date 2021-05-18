@@ -1,0 +1,54 @@
+<html>
+    <head>
+        <title>helloword!</title>
+        <script type="text/javascript">
+            /**
+             * ==比较
+             *  - 如果类型不同，自动进行类型转换，转换为相同的类型，再进行转换。
+             *  - 怎么转换并不确定，JS在这部分有些乱
+             * 
+             * != 比较
+             *  - 是 == 比较的相反结果
+             * 
+             * ===全等 
+             *  - 与==类似，但是不会做类型转换
+             *  - 类型不同，直接返回false
+             * 
+             * !==
+             *  - 与!= 类似，不做类型转换
+             *  - 类型不同，直接返回true
+             */
+           var a = 10;
+           console.log(a == 10); // true
+           console.log(a == 4); // false
+
+           console.log(a == "10"); // true
+           console.log(true == "1"); //true : 将字符串和 true都转成了Number1
+           console.log(null == 0); //false : 没有转成Number
+           console.log(null == undefined); //true
+           // NaN 不和任何值相同，包括他本身
+           console.log(NaN == NaN); //fasle
+
+           var b = NaN;
+           //判断b是否为NaN
+           /**
+            * 可以通过isNaN来进行判断
+            */
+            console.log(NaN == b); // false
+            console.log(isNaN(b)); //true
+           
+            console.log("12" === 12) //false
+            console.log("12" !== 12) // true
+
+
+
+        </script>
+    </head>
+    <body>
+        <!-- 在body里面使用Unicode编码
+        &#编码；这里的编码是十进制的 -->
+        <h1 style="font-size: 200px;color:aqua; text-align: center;">&#9731</h1>
+        <h1 style="color: brown; text-align: center; font-size: 70px; margin-bottom: 0%; margin-left: 20px;">&#9813</h1>
+        <h1 style="color: blueviolet; text-align: center; font-size: 200px;margin-top: 0px; border-top: 0px;">&#9824</h1>
+    </body>
+</html>

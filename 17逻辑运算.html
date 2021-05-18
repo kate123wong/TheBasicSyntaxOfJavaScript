@@ -1,0 +1,91 @@
+<html>
+    <head>
+        <title>helloword!</title>
+        <script type="text/javascript">
+           /**
+            * 逻辑运算符：
+            * 
+            * ! 非
+            *   - 对原来的Boolean值进行取反
+            *   - 对非Boolean 进行非运算，先将其转化成Boolean，再进行取反运算
+            *   - 可以为任何类型的值进行两次!操作，将其转化成Boolean类型的值，原理与Boolean一样
+            * && 与
+            *   - &&对符号两侧的值进行与运算，并返回运算结果
+            *   - 只要有一个为false，就返回false；
+            *   - 只有两个值都是true，就返回true.
+            *   - &&属于短路与，第一个值为false，结果直接为false
+            * 
+            *   
+            *  
+            * || 或
+            *   - &&对符号两侧的值进行或运算，并返回运算结果
+            *   - 只要两个中一个为true，则结果为true
+            *   - 只有两个都是为false，则结果为false
+            *   - || 属于短路或，第一个值为true，则直接返回true
+            * 
+            * 
+            * 对于非Boolean进行与或运算时：
+            *   会先将其转换为布尔值，然后再运算，并且返回原值
+            * - 与运算：
+            *       - 如果第一个值是true，则短路现象，结果由第二个值决定，直接返回第二个值
+            *       - 如果第一个值是false，则结果一定是false，直接返回第一个值即可。
+            * - 或运算：
+            *       - 如果第一个值是true，则结果一定是true，返回第一个值。
+            *       - 如果第一个值是false，则结果由第二个值决定，返回第二个值即可。
+            */
+        
+
+            // !运算
+            // 对Boolean值进行取反
+            var a = true;
+            a = !a;
+            console.log(a); // false
+
+            // 对Number 进行!运算
+            a = 23;
+            a = !a;  // a转换成Boolean，为true，再取反，为false
+            console.log(a); // false
+            
+            //利用!运算将Nummber类型转换成Boolean
+            a = 23;
+            a = !!23;
+            console.log(a); //true;
+
+            // &&运算
+            var res = true && true;
+            console.log(res); // true
+
+            var res = true && false;
+            console.log(res); // false
+
+            var res = true || false;
+            console.log(res); // true
+
+            //短路现象
+            var res = true || alert("true || alert");
+            console.log(res); // true ,不会弹出警示框
+
+            var res = false || alert("false || alert");
+            console.log(res); // true 会弹出警示框
+
+
+            // 非Boolean进行与或运算
+
+            // 2为true,2 && 1的结果由1决定，直接返回1。
+            var res = 2 && 1;
+            console.log(res);  // 1
+
+            // NaN为false， NaN && 0结果直接为false，返回NaN即可。
+            res = NaN && 0;
+            console.log(res); // NaN
+
+            // 0为false，0 && NaN 结果直接为false，返回 0 即可。
+            res = 0 && NaN; 
+            console.log(res);  // 0
+            
+
+        </script>
+    </head>
+    <body>
+    </body>
+</html>

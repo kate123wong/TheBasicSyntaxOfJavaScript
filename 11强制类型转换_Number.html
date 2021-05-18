@@ -1,0 +1,101 @@
+<html>
+    <head>
+        <title>helloword!</title>
+        <script type="text/javascript">
+
+            /**
+             *  将其他数据类型转换成Number
+             *      转换方式一：
+             *          使用Number()函数
+             *              - 字符串 --> 数字
+             *                  1. 如果是纯数字的字符串，直接将其转换成数字
+             *                  2. 如果字符串中有非数字的内容，就转换成NaN
+             *                  3. 如果字符串是空串或者空格，则转为0
+             *              - 布尔值 --> 数字
+             *                  1. true --> 1
+             *                  2. false --> 0
+             *              - undefined --> NaN
+             *              - null --> 0
+             *      转换方式二：
+             *          - 专门用来对付字符串
+             *          - parseInt():将一个字符串转换为一个整数
+             *          - parseFloat():把一个字符串转换成一个浮点数
+             *          - 对于非String类型的值，使用parseInt或者parseFloat函数
+             *              则先将其转换成String，然后再进行操作
+             */
+
+            // 方法一：Number()函数
+
+            // String --> Number
+            var a = "12";
+            a = Number(a);
+            console.log(a);        // 12
+            console.log(typeof a); // number
+
+            a = "abc";
+            a = Number(a);
+            console.log(a);        //NaN
+            console.log(typeof a); // number
+
+            a = "";
+            a = Number(a);
+            console.log(a);        // 0 
+            console.log(typeof a); // number      
+            
+            // Boolean --> Number
+            a = false;
+            console.log( typeof a); // boolean
+            a = Number(a);  
+            console.log(a);        // 0
+            console.log(typeof a); // number
+            
+            // Undefined --> Number
+            a = undefined;
+            a = Number(a);
+            console.log(a);        // NaN 
+            console.log(typeof a); // number      
+            
+            // Null --> Number
+            a = null;
+            a = Number(a);
+            console.log(a);        // 0 
+            console.log(typeof a); // number      
+            
+            //转换方法二：parseInt() 
+            /**
+             * parseInt将一个字符串中的有效整数提取出来
+             * 然后转换为Number
+             */
+            a = "123px";
+            a = parseInt(a);
+            console.log(a);        // 123
+            console.log(typeof a); // number      
+            
+            a = "12.3p224343"; //parseInt第一个非数字的地方就会停止
+            a = parseInt(a);
+            console.log(a);        // 12
+            console.log(typeof a); // number
+
+            a = ".12.3p224343"; //parseInt第一个非数字的地方就会停止
+            a = parseInt(a);
+            console.log(a);        // NaN
+            console.log(typeof a); // number
+
+            a = "123.435px";
+            a = parseFloat(a);
+            console.log(a);        // 123.435
+            console.log(typeof a); // number
+
+            // 先将非String的false转换为String："false"，然后将"false"使用parseInt转换成整数，也就是NaN
+            a = false;
+            a = parseFloat(a);
+            console.log(a);        // NaN
+            console.log(typeof a); // number
+
+        </script>
+    </head>
+    <body>
+        
+        <p>helloword!</p>
+    </body>
+</html>

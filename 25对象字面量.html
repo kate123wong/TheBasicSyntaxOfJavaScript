@@ -1,0 +1,41 @@
+<html>
+    <head>
+        <title>helloword!</title>
+        <script type="text/javascript">
+        /**
+         * 创建一个对象：         
+         * -  var obj = new Object();
+         * 
+         * - 使用对象字面量
+         */
+        var obj = {}; // 相当于使用new创建你
+        obj.name = "hello";
+        console.log(typeof obj);
+
+        /**
+         * 使用字面量，可以直接在创建对象时，直接指定对象的属性
+         * 语法： {属性名：属性值,属性名：属性值,属性名：属性值...}
+         *  对象字面量的属性名可以加引号，也可以不加。建议不加引号。
+         *  如果要使用一些特殊的名字，则必须加字符串。
+         * 
+         * 属性名和属性值是一组一组的；名和值由冒号连接
+         * 每一组属性由一个逗号分开，最后一组属性之后没有逗号(如果写了逗号，浏览器会自动去掉，有时候会报错)
+         * 
+         */
+
+        var obj2 = {
+            name:"猪八戒",
+            age:18,
+            gender:"女",
+            test:{
+                name:"沙和尚",
+                age:19,
+                gender:"男"
+            }
+        }
+        console.log(obj2);
+        </script>
+    </head>
+    <body>
+    </body>
+</html>

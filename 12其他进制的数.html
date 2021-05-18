@@ -1,0 +1,45 @@
+<html>
+    <head>
+        <title>helloword!</title>
+        <script type="text/javascript">
+        /**
+         * 在JS中，如果需要表示16进制的数，则需要以0x开头
+         *         如果需要表示8进制数，需要以0开头
+         *         如果要表示2进制的数，需要以0b开始，
+         *                             但是一些浏览器不支持二进制
+         */
+        var a = 0x10;
+        console.log(a); //16
+
+        var a = 0xff;
+        console.log(a); //255
+
+        // 8进制
+        var b = "070";
+        console.log(b); //56
+        b = parseInt(b); // 有些浏览器是56，有些浏览器是70
+        console.log(b);
+
+        /* 为了能够让所有浏览器以统一地进制处理"070"，
+         *可以使用parseInt的第二个参数
+        */
+        var b = "070";
+        console.log(b); //56
+        b = parseInt(b,8); // 有些浏览器是56，有些浏览器是70
+        console.log(b);
+
+        // 以0开头，但是数字中含有大于7的数字，依旧会被解析成十进制
+        b = 09831;
+        console.log(b); //9831
+        console.log(typeof b); // number
+
+        // 2进制
+        b = 0b110
+        console.log(b)
+
+        </script>
+    </head>
+    <body>
+        <p>helloword!</p>
+    </body>
+</html>

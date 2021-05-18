@@ -1,0 +1,73 @@
+<html>
+    <head>
+        <title>helloword!</title>
+        <script type="text/javascript">
+
+            /**
+             * 将其他类型的数据类型转换成Boolean
+             *  - 方法一；使用Boolean()函数
+             *      - Number --> Boolean
+             *          除了NaN 和0，其余都是true
+             *      - String --> Boolean
+             *          除了空串，其余都是true
+             *      - Null --> false
+             *      - undefined --> false
+             *      - Object --> true
+             * 方法二（隐式转换）
+             * - 为任何类型的值进行两次!操作，将其转化成Boolean类型的值
+             */
+            
+             //Number --> Boolean
+             var a = 123;
+             a = Boolean(a);
+             console.log(a);  //true
+
+             var a = -123;
+             a = Boolean(a);
+             console.log(a); //true
+
+             var a = 0;
+             a = Boolean(a);
+             console.log(a); //false
+
+             var a = Infinity;
+             a = Boolean(a);
+             console.log(a); //true
+
+             var a = NaN;
+             a = Boolean(a);
+             console.log(a); //false
+
+             //String --> Boolean
+             var a = "true";
+             a = Boolean(a);
+             console.log(a); //true
+
+             var a = "false";
+             a = Boolean(a);
+             console.log(a); //false
+
+             var a = "";
+             a = Boolean(a);
+             console.log(a); //false
+
+             var a = " ";
+             a = Boolean(a);
+             console.log(a); //false
+            
+            //Null --> false
+            var a = null;
+             a = Boolean(a);
+             console.log(a); //false
+
+            //undefined --> false
+            var a = undefined;
+             a = Boolean(a);
+             console.log(a); //false
+        </script>
+    </head>
+    <body>
+        
+        <p>helloword!</p>
+    </body>
+</html>

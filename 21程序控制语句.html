@@ -1,0 +1,100 @@
+<html>
+    <head>
+        <title>helloword!</title>
+        <script type="text/javascript">
+        
+            /**
+             *   语句的分类：
+             *      1.条件判断语句
+             *          - if语句：
+             *          - 语法一：
+             *              if(条件表达示) {语句}
+             *                如果希望if控制多条语句，可以将这些代码块放在一个{}中
+             *                推荐带有{}，尽管if后面只有一条语句
+             *          - 语法二：
+             *              if(条件表达式){
+             *                  语句
+             *              }else if(条件表达式){
+             *                  语句    
+             *              }else{
+             *                  语句
+             *              }
+             *              该语句中只有一个代码块会被执行，
+             *      2.条件分支语句
+             * 
+             * 
+             * 
+             */
+
+             //if语句举例；
+            // var a = 10
+            // if(a <= 20 && a >= 10) {
+            //     alert("猜猜我出来吗？");
+            //     alert("I am here");
+            // }
+
+            // if else语句举例：
+            // var age = 7;
+            // if(age < 18){
+            //     document.write(age + "是未成年的")
+            // } else{
+            //     document.write(age +"成年人啦~")
+            // }
+
+            // if练习
+            var score ;
+
+            /**
+             * prompt();可以弹出一个提示框，框中带有一个文本
+             * 用户可以在文本框中输入一段内容，该函数需要一个字符串作为参数
+             * 该参数会作为文本框提示的内容
+             * 
+             * 用户输入的内容作为函数的返回值返回
+             */
+            
+
+            
+            score =  prompt("请输入你的成绩");
+            score = parseFloat(score);
+            document.write(typeof score);
+            54
+            //注意排除score非法的情况
+            if (isNaN(score) || score > 100 || score < 0)
+            {
+                alert("拉出去毙了~");
+            }else if (score == 100){
+                alert("BMW");
+            } else if(score >= 80){
+                alert("ipad");
+            }else if(score >= 60){
+                alert("参考书");
+            }else {
+                alert("无奖品");
+            }
+
+            //if练习2 使得num1 <= num2 <= num3
+            var num1 = +prompt("请输入第一个数");
+            var num2 = +prompt("请输入第二个数");
+            var num3 = +prompt("请输入第三个数");
+
+            if(num1 > num2){ // 保证num1 <= num2
+                var tmp = num1;
+                num1 = num2;
+                num2 = tmp;
+            } 
+            if(num1 > num3){
+                var tmp = num1;
+                num1 = num3;
+                num3 = tmp;
+            }
+            if(num2 > num3){
+                var tmp = num2;
+                num2 = num3;
+                num3 = tmp;
+            }
+            document.write(" " + num1 + " " + num2 + " " + num3);
+        </script>
+    </head>
+    <body>
+    </body>
+</html>

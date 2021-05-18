@@ -1,0 +1,34 @@
+<html>
+    <head>
+        <title>helloword!</title>
+        <script type="text/javascript">
+
+           /**
+            * 一元运算符：只需要一个操作数的运算符
+            * +：正号
+            *   对数字没有影响
+            * -：负号
+            *   操作数取符,对于非Number，先将其转换成Number，再将其进行取负数操作
+            */
+           var a = "23";
+           a = -a;
+           console.log(a);        // -23
+           console.log(typeof a); // number
+
+           var a = "23";
+           a = +a;
+           console.log(a);        // -23
+           console.log(typeof a); // number
+
+           var res = 1 + '2' + 3;
+           console.log(res); // 123
+
+           var res = 1 + +'2' + 3;
+           console.log(res) // 6
+        </script>
+    </head>
+    <body>
+        
+        <p>helloword!</p>
+    </body>
+</html>

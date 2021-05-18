@@ -1,0 +1,167 @@
+<html>
+    <head>
+        <title>helloword!</title>
+        <script type="text/javascript">
+        
+            /**
+             * 在JS中，一共有六种数据类型
+             *      String 字符串
+             *      Number 数值
+             *      Boolean 布尔值
+             *      Null    空值
+             *      Undefined 未定义
+             *      Object 对象
+             * 前五种属于基本数据类型，Object属于引用数据类型
+             * 
+             * 
+             *  对象是一个复合的数据类型，在对象中可以保存多个数据类型的属性
+             * 
+             * 对象分类：
+             *  1. 内建对象
+             *      - 由ES标准中定义的对象，在任何的ES实现中都可以使用
+             *      - 比如，Math String Number Boolean Function Object...
+             * 
+             *  2. 宿主对象
+             *      - 由JS的运行环境提供的对象，目前来讲主要指由浏览器提供的对象
+             *      - 比如：BOM DOM
+             *  3. 自定义对象
+             *      - 由开发人员自己创建的对象
+             */ 
+
+            //创建对象
+            /**
+             * 使用new关键字调用的函数，是构造函数constructor
+             * 构造函数是专门用来创建对象的函数 
+             * 使用typeof关键字时，返回object
+             */
+            var obj = new Object();
+            console.log(typeof obj); // object
+
+            /**
+             * 在对象中保存的值叫做属性
+             * 向对象中添加属性
+             * 对象.属性 = 属性值 
+             */
+            obj.name = "孙悟空";
+            obj.gender = "男";
+            obj.age = 19;
+            console.log(obj); //{name: "孙悟空", gender: "男", age: 19}
+        
+            /**
+             * 读取属性
+             * 对象.属性名 
+             * 如果读取对象中没有的属性，不会报错，会返回一个undefined。
+             */
+            console.log(obj.name +"'s age is :" + obj.age); //孙悟空's age is :19
+
+            /**
+             * 删除对象的属性
+             * delete对象.属性名 
+             */
+
+            delete obj.age;
+            console.log(obj.name +"'s age is :" + obj.age); //孙悟空's age is :undefined
+
+            /**
+             * 对象中的属性名：
+             *  - 对象的属性名不强制遵守标识符的规范
+             *  - 但是但是我们按照标识符的规范去写
+             * 
+             *  - 但是如果要使用特殊的属性名，不能使用[对象.属性名]的方法来操作；
+             *      而要使用对象["属性名"]的方法。 
+             *      读取和添加属性都要使用[]操作
+             * 
+             *  - 使用[]操作属性更加灵活
+             *      在[]中可添加变量，变量值为多少，则就会读取那个属性
+             */
+            obj[123] = 23;
+            console.log(obj[123]); // 23
+
+            var a = 123;
+            console.log(obj[a]); //23
+
+            /**
+             * 对象中的属性值：
+             *  - JS对象的属性值，可以为任意的数据类型
+             *      甚至也可以是一个对象
+             *  - in 运算符
+             *      通过概运算符可以检测一个对象是否含有指定的属性
+             *      如果有则返回true,否则返回false.
+             *      语法：属性名 in 对象
+             */ 
+
+             var obj2 = new Object();
+             obj2.str = "hello";
+             obj2.name = "nihao";
+
+             obj.test = obj2;
+             console.log(obj.test); // {str: "hello", name: "nihao"}
+        
+            console.log("test" in obj); // true
+            console.log("test2" in obj); // false
+
+            /**
+             * Object是引用数据类型
+             * 基本数据类型是在栈内存中
+             * 对象是保存到堆内存中，每创建一个新的对象，就会在堆中开辟一个新的空间
+             * 变量存放在栈中，指向堆中的地址。
+             */
+
+            var obj = new Object();
+            obj.name = "hello";
+            var obj2 = obj; // 引用并没有调用new方法，也没有开辟新的空间
+            obj.name = "nihao ";
+            console.log(obj2.name); // nihao 
+
+
+            var obj = new Object();
+            obj.name = "hello";
+            var obj2 = obj; // 引用并没有调用new方法，也没有开辟新的空间
+            obj2 = null;    // obj2这个变量指向null，而不是指向obj所指向的地址空间
+                            // 所以obj2这个变量置空，obj不变
+            console.log(obj); // {name: "hello"}
+
+            // 
+            /**
+             * 基本数据类型比较值是否一样；
+             * Object数据类型比较内存地址是否一样
+             * 两个对象，即使内容一样，依旧是不相等的:内存地址不一样
+             */
+            var obj3 = new Object();
+            var obj4 = new Object();
+            obj3.name = "沙和尚";
+            obj4.name = "沙和尚";
+           console.log(obj3 == obj4); // false
+           console.log(obj3 === obj4);// false
+
+            /**
+             * 函数可以作为一个对象的属性值
+             * 此时，函数被称为对象的方法
+             */
+            var obj2 = {
+                name:"ss",
+                fun:function(a,b){
+                    return a + b;
+                }
+            }
+            var a = obj2.fun(3,5);
+            console.log(a); 
+
+            /**
+             * 获取对象的所有属性名和属性值
+             * 语法： for (var key in obj){} 
+             */
+            for (var key in obj2){
+                console.log("obj2[" + key + "] is " + obj2[key]);
+            }
+            /**
+             * obj2[name] is ss
+             * obj2[fun] is function(a,b){ 
+             *      return a + b;
+             *   }
+             */
+        </script>
+    </head>
+    <body>
+    </body>
+</html>

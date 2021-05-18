@@ -1,0 +1,46 @@
+<html>
+    <head>
+        <title>helloword!</title>
+        <script type="text/javascript">
+        /**
+         *  解析器在调用函数每次都会向函数内部传递一个隐含的参数
+         *  这个隐含参数就是this，this指向一个对象，
+         *  这个对象我们称为函数执行的上下文
+         *  根据函数的调用方式不同，this会指向不同的对象
+         *      1. 以函数形式调用，this永远指向window
+         *      2. 以方法的形式调用，this指向调用方法的那个对象
+         *      3. 当以构造函数的形式调用时，this就是新创建的对象
+         */
+
+        // fun1中打印变量为this.name，即上下文中的name值。
+        var name = "hello";
+        function fun1(){
+            console.log(this.name);
+        };
+
+        var obj = {
+            name: "悟空",
+            sayName: fun1
+        };
+        fun1();
+        obj.sayName();
+
+
+        // 当函数中的变量是写死的时候，fun2会在当前找name，没有的话就去全局寻找name。
+        var name = "hello";
+        function fun2(){
+            console.log(name);
+        };
+
+        var obj = {
+            name: "悟空",
+            sayName: fun2
+        };
+        fun2();
+        obj.sayName();
+
+        </script>
+    </head>
+    <body>
+    </body>
+</html>
