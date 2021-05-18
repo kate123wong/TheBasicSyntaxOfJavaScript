@@ -1,0 +1,2 @@
+# TheBasicSyntaxOfJavaScript
+JavaScript基本语法
