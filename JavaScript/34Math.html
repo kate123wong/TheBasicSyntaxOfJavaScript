@@ -1,0 +1,46 @@
+<html>
+    <head>
+        <title>helloword!</title>
+        <script type="text/javascript">
+        /**
+         * Math: 虽然首字母大写，但是不是一个构造函数，
+         *      - 它属于工具类，包含了一些常用的数学中的方法 
+         */
+        var pi_value=Math.PI;
+        console.log(pi_value); // 3.141592653589793
+        // abs()计算绝对值
+        console.log(Math.abs(-Math.PI));
+        // ceil()对数进行向上取整,floor向下取整，round四舍五入取整
+        var a = 0.53;
+        console.log(Math.ceil(a));  // 1
+        console.log(Math.floor(a)); // 0
+        console.log(Math.round(a)); // 1
+
+        //random()返回0-1之间的小数
+        for(var i = 0; i < 4; i++){
+            console.log(Math.random());
+        }
+            // 0.07286118712835199
+            // 0.25685495066990005
+            // 0.6626692985930833
+            // 0.30892522979458437
+        //生成0-10之间的整数
+        for(var i = 0; i < 4; i++){
+            console.log(Math.round(Math.random() * 10));
+        }
+        // 4 9 3 9
+        // 生成一个L-R之间的随机数
+        // L + Math.round(Math.random() * (R-L))
+
+        // max()返回最大值
+        console.log(Math.max(12,434,5465)); // 5465
+
+        // pow(x,y) : x的y次方
+        // sqrt(x):   x开放的值
+        console.log(Math.pow(2,3)); //8
+        console.log(Math.sqrt(16)); // 4
+        </script>
+    </head>
+    <body>
+    </body>
+</html>

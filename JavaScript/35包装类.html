@@ -1,0 +1,46 @@
+<html>
+    <head>
+        <title>helloword!</title>
+        <script type="text/javascript">
+            /**
+             * 在JS中，一共有六种数据类型
+             *      String 字符串
+             *      Number 数值
+             *      Boolean 布尔值
+             *      Null    空值
+             *      Undefined 未定义
+             *      Object 对象
+             * 前五种属于基本数据类型，Object属于引用数据类型
+             * 
+             * - JS中提供了三个包装类，可以将基本数据类型转换为对象Object
+             *      - Number
+             *      - String
+             *      - Boolean
+             * - 在开发中，我们不使用基本数据类型，都将其转换成对象
+             *      1. 因为对象更加健壮，可以具有一些属性和方法
+             *      2. 因为对象的相等判断是看内存地址，不同的对象一定不相等
+             *          但是基本数据类型的相等判断，是看值是否相等
+             */ 
+            var a = new Number(1);
+            console.log(typeof a); // Object
+            a.num = 2;
+            console.log(a.num); //2
+
+            /**
+             *  基本数据类型没有属性和方法，
+             *  当我们调用基本数据类型的属性和方法的时候，
+             *      浏览器会使用包装类将其临时转换为对象，然后调用对象的属性和方法
+             *      调用完之后，再将其转回基本数据类型
+             */
+            
+            var b = Number(2);
+            console.log(typeof b); // number 
+            b.num = 2;  // 将b转换为对象，为其添加num属性，然后删掉这个临时对象，
+            console.log(b.num);  // undefined 访问num属性的时候，会再次将b转换为一个对象，此时的新建对象没有num属性，所以是undefined
+            console.log(typeof b.toString()); // string
+
+        </script>
+    </head>
+    <body>
+    </body>
+</html>

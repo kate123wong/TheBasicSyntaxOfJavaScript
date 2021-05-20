@@ -1,0 +1,239 @@
+<html>
+    <head>
+        <title>helloword!</title>
+        <script type="text/javascript">
+        // 创建重复对象重复工作量太大
+        var obj = {
+            name:"悟空",
+            age:19,
+            sayName:function(){
+             alert(name);
+            }
+        }
+        var obj = {
+            name:"八戒",
+            age:20,
+            sayName:function(){
+             alert(name);
+            }
+        }
+
+        /**
+         * 使用工厂方式创建对象
+         * 通过该方法可以大批量地创建对象 
+         * 使用工厂函数创建的对象，使用的构造函数都是Object
+         * 所以创建的对象都是Object这个类型。
+         * 就导致我们无法区分出多种不同类型的对象
+         */
+        function creatPerson(name, age, gender){
+            var obj = new Object();
+            obj.name = name;
+            obj.age = age;
+            obj.gender = gender;
+            return obj;
+        }
+
+        var obj1 = creatPerson("猪八戒",19,"男");
+        console.log(obj1);
+
+        /**
+         * 构造函数 
+         * 构造函数就是一个普通的函数，创建方式与普通函数没有区别
+         * 不同的是构造函数习惯上首字母大写
+         * 
+         * 构造函数的执行流程：
+         *  1. 立刻创建一个新的对象
+         *  2. 将新建的对象设置为函数中的this
+         *  3. 逐行执行函数中代码
+         *  4. 将新建的对象作为返回值返回
+         * 
+         * 使用同一个构造函数创建的对象，我们称为一类对象，也将构造函数称作类
+         *  我们将一个构造函数构造的对象就叫做类的实例。
+         * 
+         */
+
+         function Person(name, age, gender){
+            this.name = "孙悟空";
+        }
+        // 当使用Person()调用函数时， this.name是指window.name
+        var per = Person();
+        console.log(per);       // undefined
+        console.log(window.name); //孙悟空
+
+        // 当使用new Person() 调用函数时，this.name指的是obj的name
+        var obj = new Person();
+        console.log(obj);       // object
+        console.log(obj.name);  // "孙悟空"
+
+
+        // 完整的构造函数举例：
+        function Dog(name, age, gender){
+            var obj = new Object();
+            this.name = name;
+            this.age = age;
+            this.gender = gender;
+        }
+
+        /**
+         * 使用可以检查一个对象是否是一个类的实例
+         */
+        var dog1 = new Dog();
+        console.log(dog1 instanceof Dog); // true
+
+        /**
+         * 所有的对象都是Object的后代
+         * 所有的对象与Object做instanceof运算都是true 
+         */
+        console.log(dog1 instanceof Object);// true
+
+        {
+            /**
+             *  创建一个Person2的构造函数
+             *      - 在Person2构造函数中，每一个对象都添加一个sayName方法
+             *          目前我们的方法是在构造函数内部创建的，
+             *          也就是说每执行一次构造函数，就会执行一次sayName方法
+             *          所有实例的sayName方法是唯一的
+             *          这样也就导致了构造函数执行一次就创建一个新的方法，执行100000次就创建这么多个方法。
+             */
+
+            function Person2(name, age, gender){
+                var obj = new Object();
+                this.name = name;
+                this.age = age;
+                this.gender = gender;
+                this.sayName = function(){
+                    document.write("hello, I am " + this.name);
+                }
+            }
+            var p1 = new Person2(1,2,"男");
+            var p2 = new Person2(4,5,"女");
+            console.log(p1.sayName == p2.sayName); //false
+        }
+        {
+            // 将我们的方法提到构造函数外面
+            function Person3(name, age, gender){
+                var obj = new Object();
+                this.name = name;
+                this.age = age;
+                this.gender = gender;
+                this.sayName = f3
+            }
+            //但是将函数定义在全局作用域，污染了全局作用域的命名空间
+            function f3(){
+                    document.write("hello, I am " + this.name);
+            }
+            var p1 = new Person2(1,2,"男");
+            var p2 = new Person2(4,5,"女");
+            console.log(p1.sayName == p2.sayName); //true
+        }
+        
+        /**
+         * 原型prototype
+         *   我们所创建的每一个函数，解析器都会向函数中添加一个属性：prototype
+         *     prototype对应着一个对象，这个对象是我们所谓的原型
+         *   如果函数作为普通的函数被调用，prototype没有任何作用
+         *   当函数以构造函数的形式调用时，它所创建的对象中会有一个隐含的属性
+         *      指向该构造函数的原型，我们可以通过__proto__来访问该属性
+         * 
+         *  原型对象就相当于一个公共的区域，所有同一个类的实例都可访问原型对象
+         *    我们可以将对象中共有的属性添加到原型对象中
+         * 
+         * 当我们访问对象的一个属性或者方法时，首先在对象自身寻找，如果有则使用；
+         *      如果没有，则在原型对象中寻找。
+         * 
+         * 以后我们创建构造函数时，可以将这些对象共有的属性方法，同意添加到构造函数的原型对象中
+         *      这样不用分别为每一个对象添加，也不会影响到全局作用域，就可以使每个对象都具有这些属性和方法了
+         * 
+         * 原型对象也是对象，所以它也有原型。
+         *      当我们使用一个对象的属性或者方法的时候，先在自身找，
+         *      没有的话去原型中寻找，找到找到Object对象。
+         *      若还是没有，则返回undefined。
+         */
+        function Class1() {  
+
+        }
+        
+        function Class2() {  
+
+        }    
+
+        {
+            // 一个类有一个原型对象,不同类对应的原型对象不同
+            console.log(Class1.prototype == Class2.prototype); //false
+        }
+
+       {
+            // prototype是函数具有的；__proto__是实例可访问的
+            var c1 = new Class1();
+            console.log(c1.__proto__); // object
+            console.log(c1.__proto__ == Class1.prototype) // true
+       }
+
+        {
+            // 在Class1类的原型对象中添加a属性，属性值为1
+            Class1.prototype.a = 1;
+            // Class1类的实例对象想要访问a属性，
+            //在自身中找不到的情况下，在Class1类对应的原型对象中寻找
+            console.log(c1.a); // 1 
+        }
+
+        {
+            /**
+             * 向Class1的原型中添加方法，实例是能够调用原型中的方法的
+             */
+            Class1.prototype.sayHello = function () { 
+                console.log("hello, 我来自原型");
+            }
+            c1.__proto__.sayHello(); //hello, 我来自原型
+        }
+
+        {
+            // 使用in检测对象中是否有某个属性时，如果对象中没有但是原型中有，也会返回true
+            console.log("a" in c1); // true
+            // 使用hasOwnProperty来检测对象自身是否含有某个属性
+            console.log(c1.hasOwnProperty("a")); // false
+            //
+            console.log(c1 in hasOwnProperty);   // false
+            console.log(c1.hasOwnProperty("hasOwnProperty")); //false
+            console.log(c1.__proto__.__proto__.hasOwnProperty("hasOwnProperty"));  // true
+        }
+
+
+        {
+            function A() {
+            }
+
+            // 在A的原型中创建f1，在A的实例中也可以看见f1
+            A.prototype.f1 = function() {console.log("f1")}
+            // 为对象A添加方法f2，但是由于其不在构造函数A()中，因此以A为实例的对象访问不到f2
+            A.f2 = function () {console.log('f2')} // 此时A作为一个对象，具有f2方法
+
+            var a = new A()
+
+            // a.f1() //ok
+            // A.f1() //undefined 
+
+            // a.f2() //undefined a没有f2方法，a的原型也没有f2方法
+            // A.f2() // ok
+        }
+        {
+            function Person4(name, age, gender){
+                var obj = new Object();
+                this.name = name;
+                this.age = age;
+                this.gender = gender;
+            }
+            var p4 = new Person4("wukong",12,"男");
+            console.log(p4.toString()); // [object Object]
+            // toString方法不是p4的方法，也不是p4的原型的方法，是Object的方法
+            console.log(p4.__proto__.__proto__.hasOwnProperty("toString")); // true
+            Person4.prototype.toString = function(){
+                return "我是toString方法";
+            }
+            console.log(p4.toString());
+        }
+        </script>
+    </head>
+    <body>
+    </body>
+</html>

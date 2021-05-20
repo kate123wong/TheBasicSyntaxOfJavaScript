@@ -1,0 +1,20 @@
+<html>
+    <head>
+        <title>helloword!</title>
+        <script type="text/javascript">
+        /**
+         * 垃圾回收GC
+         * - 当一个对象没有任何对象或属性对他进行引用，我们无法操作这种对象
+         *      这种对象就是垃圾，会占用大量的内存空间，导致程序运行变慢
+         * - JS中可以自动的进行垃圾回收，会自动地将垃圾对象回收
+         *      我们不需要也不能对垃圾进行回收的操作
+         * - 我们需要做的就是将不需要的对象置为null
+         */
+        var obj = new Object();
+        // 声明obj为null，过段时间，浏览器就会回收这个Object对象。
+        obj = null;
+        </script>
+    </head>
+    <body>
+    </body>
+</html>
