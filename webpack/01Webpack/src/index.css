@@ -1,6 +1,47 @@
 body{
-    background-color:pink;
+    /* background-color:pink; */
     text-align: center;
     font-size: 50px;
     color: aqua;
+}
+#box1{
+    margin: 10px;
+    width: 50vw;
+    height: 50vh;
+    background-position: 50% ,0%;
+    background-image: url('./images/01.jpg');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+#box2{
+    margin: 15px;
+    width: 50vw;
+    height: 50vh;
+    background-image: url('./images/02.jpg');
+    background-repeat: no-repeat;
+    background-size: 100%, 100%;
+}
+#box3{
+    margin: 15px;
+    width: 50vw;
+    height: 50vh;
+    background-image: url('./images/03.jpg');
+    background-repeat: no-repeat;
+    background-size: 100%, 100%;
+}
+#box4{
+    margin: 15px;
+    width: 50vw;
+    height: 50vh;
+    background-image: url('./images/04.jpg');
+    background-repeat: no-repeat;
+    background-size: 100%, 100%;
+}
+#box5{
+    margin: 15px;
+    width: 50vw;
+    height: 50vh;
+    background-image: url('./images/05.jpg');
+    background-repeat: no-repeat;
+    background-size: 100%, 100%;
 }

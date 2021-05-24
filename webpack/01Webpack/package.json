@@ -10,11 +10,14 @@
   "license": "ISC",
   "dependencies": {
     "css-loader": "^5.2.5",
+    "html-loader": "^2.1.2",
     "style-loader": "^2.0.0",
     "ts-loader": "^9.2.2"
   },
   "devDependencies": {
+    "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.3.1",
+    "url-loader": "^4.1.1",
     "webpack": "^5.37.1",
     "webpack-cli": "^4.7.0"
   }
