@@ -48,4 +48,4 @@ npm i webpack //  package.json中增加一条dependencies项：webpack，
 //生成package-lock.json文件，文件中增加一条json数据，name为webpack，记录webpack的依赖包......
 npm i webpack webpack-cli -g //下载webpack的脚手架，全局安装
 ```
-新建`webpack.config.js`文件，添加配置，loader写在module的rules里，插件写在plugins里。
+新建`webpack.config.js`文件，添加配置，loader写在module的rules里，插件写在plugins里。详见[webpack.config.js](./webpack.config.js)

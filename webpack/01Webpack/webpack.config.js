@@ -13,8 +13,9 @@
 const { resolve } = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
-    entry: './src/index.js',
+    entry: './src/index.js', //以该文件为入口文件
     output:{
+        // 将入口js文件中的所有引入文件打包输出到build.js中
         filename: 'build.js',
         path:resolve(__dirname,'build')
     },
@@ -40,7 +41,7 @@ module.exports = {
                     name: '[hash:10].[ext]'
                 }
             },
-            { 
+            {
                 test: /\.html$/,
                 //处理html文件中的img图片（负责引入img，从而能被url-loader处理
                 loader: 'html-loader'
@@ -52,7 +53,8 @@ module.exports = {
         //功能：插件会创建一个空的HTML文件，引入打包输出的所有资源（JS/CSS）
         // 需求：需要有结构的HTML文件
         new HtmlWebpackPlugin({
-            //复制'./src/index.html'文件，并自动引入打包输出的文件
+            // 复制'./src/index.html'文件，并自动引入打包输出的文件：./build/index.html，
+            // 打包输出的html文件会自动应用打包输出的js文件。
             template:'./src/index.html'
         })
     ],
