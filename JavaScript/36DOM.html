@@ -1,0 +1,54 @@
+<html>
+    <head>
+        <title>helloword!</title>
+        <script>
+            // 如果要将js写在head标签中，就可以为window绑定一个onload函数，将JS代码写到onload函数中
+            // 如果考虑性能的话，JS写在下面更快
+            window.onload = function () {
+                /**
+                 文档节点：浏览器为我们提供，代表整个网页；
+                使用document访问
+                */
+                console.log(document); //可以打印对象document
+
+                var btn = document.getElementById("btn");
+                //修改butten中的文字
+                console.log(btn.innerHTML); //我是一个button
+                btn.innerHTML = "我被JS改变了"; //HTML页面中的button里面的值被改变了
+
+                /**
+                 * 绑定一个单机 相应函数
+                 * 给按钮事件绑定一个处理函数的形式来相应事件，
+                 * 这样当事件被触发时，其对应的函数就会被调用
+                 */
+                btn.onclick = function(){
+                    alert("讨厌");
+                }
+                btn.onfocus = function(){
+                    document.write("onfous on button");
+                }
+              }
+        </script>
+    </head>
+    <body>
+    <!-- 
+        事件：就是用户和浏览器之间的交互。
+        我们可以在事件对应的属性中设置一些JS代码，
+            当事件触发时，这些JS代码将会执行。
+            可以在`https://www.w3school.com.cn/jsref/dom_obj_event.asp`
+            中查看DOM事件。
+        -->
+    <!-- <button id="btn" onclick="alert('讨厌')">我是一个button</button> -->
+    <!-- 上述这种写法JS和HTML耦合，不便于维护，一般情况将JS和HTML文件分开 
+        可以给对应按钮的事件绑定函数
+    -->
+    <button id="btn">我是一个button</button>
+    <!-- 
+        浏览器运行的时候一行一行执行，所以要操作的btn的script代码一定要写在btn标签的下面
+        如果要将js写在head标签中，就可以为window绑定一个onload函数，将JS代码写到onload函数中
+     -->
+    <script type="text/javascript">
+        
+    </script>
+    </body>
+</html>
