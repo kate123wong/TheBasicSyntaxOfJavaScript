@@ -48,4 +48,9 @@ npm i webpack //  package.json中增加一条dependencies项：webpack，
 //生成package-lock.json文件，文件中增加一条json数据，name为webpack，记录webpack的依赖包......
 npm i webpack webpack-cli -g //下载webpack的脚手架，全局安装
 ```
-新建`webpack.config.js`文件，添加配置，loader写在module的rules里，插件写在plugins里。详见[webpack.config.js](./webpack.config.js)
++ 新建`webpack.config.js`文件，添加配置，loader写在module的rules里，插件写在plugins里。详见[webpack.config.js](./01Webpack/webpack.config.js)
+
++ [src](01Webpack/src)里的内容是开发的代码html、css、所需的iamges等内容；
++ [build](01Webpack/build)里的[build.js](01Webpack/build/build.js)是根据`webpack.config.js`指定的入口文件打包形成的js输出文件；
++ [build/index.html](01Webpack/build/index.html)是[src/index.html](01Webpack/src/index.html)被复制然后关联了[build.js]后生成的新的html页面。
++ 原理：在[01Webpack/](01Webpack/)目录，运行`webpack`时，`webpack`会根据`webpack.config.js`配置中定义的入口文件，根据rules指定的loaders解析各种元素，生成build.js。插件`html-webpack-plugin`会复制调用插件函数时指定的html到build文件中，并在复制的文件中引入build.js。
